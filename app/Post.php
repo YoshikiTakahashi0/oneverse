@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use CloudinaryLabs\CloudinaryLaravel\MediaAlly;
 
 class Post extends Model
 {
@@ -24,4 +25,15 @@ class Post extends Model
         //Postは複数のTagを持つ
         return $this->belongToMany('App\Tag');
     }
+    
+    public function getPaginateByLimit(int $limit_count = 10)
+    {
+        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
+    
+    protected $fillable = [
+        'music',
+        'title',
+        'body',
+    ];
 }
