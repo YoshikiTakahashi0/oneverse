@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CloudinaryUploadController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,7 +14,8 @@
 |
 */
 
-Route::get('/posts', "PostController@index");
+Route::get('/', "HomeController@index");
+Route::post('/posts', 'PostController@store');
+Route::get('/posts/index', "PostController@index");
+Route::get('/posts/create', "PostController@create");
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

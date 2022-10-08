@@ -18,8 +18,9 @@ class CreatePostsTable extends Migration
             $table->string('title', 30);
             $table->string('music');
             $table->string('body', 100)->nullable();
+            $table->integer('user_id')->unsigned();
             $table->integer('plays')->nullable();
-            $table->string('image')->nullable;
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
