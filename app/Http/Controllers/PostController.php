@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 use Cloudinary;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,17 +19,13 @@ class PostController extends Controller
         return view('posts/create');
     }
     
-    public function store(Request $request, Post $post)
+    public function store(Post $post, PostRequest $request)
     {
-
         //musicの保存処理
         $music = $request->file('music');
         
-        if(isset($music)){
-            
-            //  アップロードされたファイルの絶対パスを取得
-            $post->music = Cloudinary::uploadVideo($music->getRealPath())->getSecurePath();
-        }
+        //  アップロードされたファイルの絶対パスを取得
+        $post->music = Cloudinary::uploadVideo($music->getRealPath())->getSecurePath();
         
         $post->user_id = Auth::id();
         $input = $request['post'];
