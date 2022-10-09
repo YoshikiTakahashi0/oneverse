@@ -21,11 +21,18 @@ class PostController extends Controller
     
     public function store(Post $post, PostRequest $request)
     {
-        //musicの保存処理
+        // musicの保存処理
         $music = $request->file('music');
-        
-        //  アップロードされたファイルの絶対パスを取得
+        // アップロードされたファイルの絶対パスを取得
         $post->music = Cloudinary::uploadVideo($music->getRealPath())->getSecurePath();
+        
+        // imageの保存処理
+        if(isset($image))
+        {
+            $image = $request->file('image');
+            $post->image = Cloudinary::upload($image->getRealPath())->getSecurePath();
+        }
+        
         
         $post->user_id = Auth::id();
         $input = $request['post'];
