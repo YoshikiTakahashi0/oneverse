@@ -11,6 +11,11 @@
         <input type="file" name="music" value="{{ old('music') }}"/>
         <p class="music__error" style="color:red">{{ $errors->first('music') }}</p>
     </div>
+    <div class="image">
+        <h2>Image</h2>
+        <input type="file" name="image" value="{{ old('image') }}"/>
+        <p class="image__error" style="color:red">{{ $errors->first('image') }}</p>
+    </div>
     <div class="title">
         <h2>Title</h2>
         <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>

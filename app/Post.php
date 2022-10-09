@@ -33,6 +33,7 @@ class Post extends Model
     
     protected $fillable = [
         'music',
+        'image',
         'title',
         'body',
     ];

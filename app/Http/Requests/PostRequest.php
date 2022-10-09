@@ -10,6 +10,7 @@ class PostRequest extends FormRequest
     {
         return [
             'music' => 'required|mimes:mp4,qt',
+            'image' => 'nullable|image',
             'post.title' => 'required|string|max:50',
             'post.body' => 'required|string|max:300',
         ];
