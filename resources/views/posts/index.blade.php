@@ -7,9 +7,12 @@
 <div class='posts'>
     @foreach ($posts as $post)
         <div class='post'>
-            <p class='music'><img src="{{ $post->music}}" alt=""></p>
-            <h2 class='title'>{{ $post->Title }}</h2>
-            <p class='body'>{{ $post->Body }}</p>
+            <h2 class='title'>
+                <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+            </h2>
+            <p class='image'><img src="{{ $post->image }}"></p>
+            <p class='music'><video controls width="200" height="200" src="{{ $post->music }}"></p>
+            <p class='body'>{{ $post->body }}</p>
         </div>
     @endforeach
 </div>

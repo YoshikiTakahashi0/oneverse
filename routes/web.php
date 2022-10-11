@@ -14,9 +14,10 @@ use App\Http\Controllers\CloudinaryUploadController;
 |
 */
 
-Route::get('/', "HomeController@index");
+Route::get('/', 'HomeController@index');
 Route::post('/posts', 'PostController@store');
-Route::get('/posts/index', "PostController@index");
+Route::get('/posts/index', 'PostController@index');
+Route::get('/posts/{post}','PostController@show');
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function(){
