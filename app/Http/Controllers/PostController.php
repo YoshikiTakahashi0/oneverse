@@ -14,6 +14,11 @@ class PostController extends Controller
          return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
     }
     
+    public function show(Post $post)
+    {
+        return view('posts/show')->with(['post' => $post]);
+    }
+    
     public function create()
     {
         return view('posts/create');
@@ -32,7 +37,6 @@ class PostController extends Controller
             $image = $request->file('image');
             $post->image = Cloudinary::upload($image->getRealPath())->getSecurePath();
         }
-        
         
         $post->user_id = Auth::id();
         $input = $request['post'];

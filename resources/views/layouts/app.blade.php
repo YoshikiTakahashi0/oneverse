@@ -33,7 +33,7 @@
                 <a class="ranking" href="{{ url('/ranking') }}">
                     ランキング
                 </a>
-                <a class="new" href="{{ url('/new') }}">
+                <a class="index" href="{{ url('posts/index') }}">
                     新着
                 </a>
                 <a class="tags" href="{{ url('/tags') }}">
