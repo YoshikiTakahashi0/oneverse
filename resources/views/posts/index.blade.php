@@ -11,7 +11,6 @@
                 <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
             </h2>
             <p class='image'><img width="70" height="70" src="{{ $post->image }}"></p>
-            <p class='music'><video controls width="300" height="300" src="{{ $post->music }}"></p>
             <p class='body'>{{ $post->body }}</p>
         </div>
     @endforeach
