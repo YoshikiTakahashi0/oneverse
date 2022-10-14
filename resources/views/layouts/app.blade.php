@@ -39,7 +39,7 @@
                 <a class="tags" href="{{ url('/tags') }}">
                     タグ一覧
                 </a>
-                <a class="create" href="{{ url('/posts/create') }}">
+                <a class="create" href="{{ url('posts/create') }}">
                     投稿する
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

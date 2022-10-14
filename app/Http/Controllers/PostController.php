@@ -32,10 +32,10 @@ class PostController extends Controller
         $post->music = Cloudinary::uploadVideo($music->getRealPath())->getSecurePath();
         
         // imageの保存処理
-        if(isset($image))
+        if($request->file('image'))
         {
-            $image = $request->file('image');
-            $post->image = Cloudinary::upload($image->getRealPath())->getSecurePath();
+        $image = $request->file('image');
+        $post->image = Cloudinary::upload($image->getRealPath())->getSecurePath();
         }
         
         $post->user_id = Auth::id();
@@ -43,5 +43,6 @@ class PostController extends Controller
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
+    
 }
 ?>
