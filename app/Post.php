@@ -23,7 +23,7 @@ class Post extends Model
     public function tags()
     {
         //Postは複数のTagを持つ
-        return $this->belongToMany('App\Tag');
+        return $this->belongTo('App\Tag');
     }
     
     public function getPaginateByLimit(int $limit_count = 5)
@@ -36,5 +36,6 @@ class Post extends Model
         'image',
         'title',
         'body',
+        'plays',
     ];
 }

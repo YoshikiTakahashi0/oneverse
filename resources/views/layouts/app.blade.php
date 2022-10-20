@@ -36,7 +36,7 @@
                 <a class="index" href="{{ url('posts/index') }}">
                     新着
                 </a>
-                <a class="tags" href="{{ url('/tags') }}">
+                <a class="tags" href="{{ url('tags/index') }}">
                     タグ一覧
                 </a>
                 <a class="create" href="{{ url('posts/create') }}">
