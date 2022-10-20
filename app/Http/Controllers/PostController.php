@@ -16,9 +16,13 @@ class PostController extends Controller
     
     public function show(Post $post)
     {
+        $plays = $post->plays;
+        $post->plays = ++$plays;
+        $post->save();
+        
         return view('posts/show')->with(['post' => $post]);
     }
-    
+
     public function create()
     {
         return view('posts/create');

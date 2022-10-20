@@ -3,7 +3,7 @@
 @section("head")
 
 @section('content')
-<h1>投稿一覧</h1>
+<h1>新着</h1>
 <div class='posts'>
     @foreach ($posts as $post)
         <div class='post'>

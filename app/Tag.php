@@ -10,6 +10,11 @@ class Tag extends Model
     public function posts()
     {
         //1つのTagを複数のPostが持つ
-        return $this->belongsToMany('App\Post');
+        return $this->hasMany('App\Post');
+    }
+    
+     public function getPaginateByLimit(int $limit_count = 20)
+    {
+        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
 }
