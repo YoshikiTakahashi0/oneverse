@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section("head")
-
 @section('content')
 <h1>タグ一覧</h1>
 <div class='tags'>
