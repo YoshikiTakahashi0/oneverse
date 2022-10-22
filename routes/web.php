@@ -23,4 +23,5 @@ Route::post('/posts', 'PostController@store');
 Route::get('/posts/index', 'PostController@index');
 Route::get('/posts/{post}','PostController@show');
 Route::get('/tags/index','TagController@index');
+Route::get('/tags/{tag}','TagController@posts_sort');
 Auth::routes();

@@ -20,13 +20,13 @@ class Post extends Model
     }
     
     //Tagに対するリレーション
-    public function tags()
+    public function tag()
     {
-        //Postは複数のTagを持つ
-        return $this->belongTo('App\Tag');
+        //Postは1つのTagを持つ
+        return $this->belongsTo('App\Tag');
     }
     
-    public function getPaginateByLimit(int $limit_count = 5)
+    public function getPaginateByLimit(int $limit_count = 10)
     {
         return $this->orderBy('created_at', 'DESC')->paginate($limit_count);
     }
@@ -37,5 +37,6 @@ class Post extends Model
         'title',
         'body',
         'plays',
+        'tag_id',
     ];
 }

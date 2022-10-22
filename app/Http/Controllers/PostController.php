@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Tag;
 use App\Http\Requests\PostRequest;
 use Cloudinary;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,7 @@ class PostController extends Controller
     
     public function show(Post $post)
     {
+        // 再生数管理
         $plays = $post->plays;
         $post->plays = ++$plays;
         $post->save();
@@ -23,9 +25,9 @@ class PostController extends Controller
         return view('posts/show')->with(['post' => $post]);
     }
 
-    public function create()
+    public function create(Tag $tag)
     {
-        return view('posts/create');
+        return view('posts/create')->with(['tags' =>Tag::get()]);
     }
     
     public function store(Post $post, PostRequest $request)
@@ -40,6 +42,12 @@ class PostController extends Controller
         {
         $image = $request->file('image');
         $post->image = Cloudinary::upload($image->getRealPath())->getSecurePath();
+        }
+        
+        //tag_id保存処理
+        if(isset($request->tag_id))
+        {
+            $post->tag_id = $request->tag_id;
         }
         
         $post->user_id = Auth::id();

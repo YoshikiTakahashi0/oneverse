@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Post;
 
 class Tag extends Model
 {
@@ -15,6 +16,6 @@ class Tag extends Model
     
      public function getPaginateByLimit(int $limit_count = 20)
     {
-        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this->orderBy('created_at', 'DESC')->paginate($limit_count);
     }
 }
