@@ -5,7 +5,9 @@
 <div class='tags'>
     @foreach ($tags as $tag)
         <div class='tag'>
-            <p class='name'>{{ $tag->name }}</p>
+            <h2 class='name'>
+                <a href="/tags/{{ $tag->id }}">{{ $tag->name }}</a>
+            </h2>
         </div>
     @endforeach
 </div>

@@ -8,6 +8,9 @@
     <p class='image'><img width="70" height="70" src="{{ $post->image }}"></p>
     <p class='music'><video controls width="300" height="300" src="{{ $post->music }}"></p>
     <p class='body'>{{ $post->body }}</p>
+    <p class='tag'>
+       <a href='/tags/{{ $post->tag->id }}'>{{ $post->tag->name }}</a>
+    </p>
     <p class='plays'>再生{{ $post->plays }}回</p>
 </div>
 <div class="footer">
