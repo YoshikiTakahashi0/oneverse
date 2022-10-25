@@ -13,6 +13,8 @@ class PostRequest extends FormRequest
             'image' => 'nullable|image',
             'post.title' => 'required|string|max:50',
             'post.body' => 'required|string|max:300',
+            'review.body' => 'nullable|string|max:100',
+            'review.rating' => 'required',
         ];
     }
 }

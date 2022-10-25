@@ -12,6 +12,7 @@
     @csrf
     <div class="rating">
         <div class="rate-form">
+            
             <input id="star5" type="radio" name="rating" value="5">
             <label for="star5">★</label>
             <input id="star4" type="radio" name="rating" value="4">
@@ -22,6 +23,7 @@
             <label for="star2">★</label>
             <input id="star1" type="radio" name="rating" value="1">
             <label for="star1">★</label>
+            <p class="rating_error" style="coler:red">{{ $errors->first('review.rating') }}</p>
         </div>
         <div class="post_id">
             <input type="hidden" name="review[post_id]" value="{{ $review->post_id }}"/>
@@ -29,6 +31,7 @@
         <div class="body">
             <h2>コメント</h2>
             <textarea name="review[body]">{{ old("review.body") }}</textarea>
+            <p class="body__error" style="color:red">{{ $errors->first('review.body') }}</p>
         </div>
     </div>
     <input type="submit" value="投稿">
