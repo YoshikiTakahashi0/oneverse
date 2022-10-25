@@ -8,9 +8,9 @@ use CloudinaryLabs\CloudinaryLaravel\MediaAlly;
 class Post extends Model
 {
     //Commentに対するリレーション
-    public function comments()
+    public function reviews()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Review');
     }
     
     //Userに対するリレーション

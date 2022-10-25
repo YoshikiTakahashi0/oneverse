@@ -16,6 +16,7 @@ use App\Http\Controllers\CloudinaryUploadController;
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/posts/create', 'PostController@create');
+    Route::get('/posts/{post}/reviews/create','ReviewController@create');
 });
 
 Route::get('/', 'HomeController@index');
@@ -24,4 +25,5 @@ Route::get('/posts/index', 'PostController@index');
 Route::get('/posts/{post}','PostController@show');
 Route::get('/tags/index','TagController@index');
 Route::get('/tags/{tag}','TagController@posts_sort');
+Route::post('/reviews', 'ReviewController@store');
 Auth::routes();
