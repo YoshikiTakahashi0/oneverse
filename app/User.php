@@ -44,9 +44,9 @@ class User extends Authenticatable
     }
     
     //commentに対するリレーション
-    public function Comments()
+    public function reviews()
     {
-        return $this->hasMany('App\Commnet');
+        return $this->hasMany('App\Review');
     }
     
     //userに対するリレーション。フォロワー
