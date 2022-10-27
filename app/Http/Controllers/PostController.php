@@ -56,5 +56,11 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
     
+    public function rank()
+    {
+        $posts = Post::orderBy('plays', 'desc')->paginate(20);
+        return view('posts/rank')->with(['posts' => $posts]);
+    }
+    
 }
 ?>

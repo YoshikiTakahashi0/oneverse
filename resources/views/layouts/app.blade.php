@@ -30,7 +30,7 @@
                 <a class="about" href="{{ url('/about') }}">
                     本アプリについて
                 </a>
-                <a class="ranking" href="{{ url('/ranking') }}">
+                <a class="ranking" href="{{ url('/rank') }}">
                     ランキング
                 </a>
                 <a class="index" href="{{ url('posts/index') }}">

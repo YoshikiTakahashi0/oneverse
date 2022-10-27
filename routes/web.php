@@ -26,4 +26,5 @@ Route::get('/posts/{post}','PostController@show');
 Route::get('/tags/index','TagController@index');
 Route::get('/tags/{tag}','TagController@posts_sort');
 Route::post('/reviews', 'ReviewController@store');
+ROute::get('/rank', 'PostController@rank');
 Auth::routes();
