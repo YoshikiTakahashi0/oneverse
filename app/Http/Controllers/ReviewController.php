@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Review;
-use Illuminate\Http\Request;
+use App\Http\Requests\ReviewRequest;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -16,9 +16,8 @@ class ReviewController extends Controller
         return view('reviews/create')->with(['review' => $review]);
     }
     
-    public function store(Review $review, Request $request)
+    public function store(Review $review, ReviewRequest $request)
     {
-        
         $review->user_id = Auth::id();
         $input = $request['review'];
         $review->rating = $request->rating;
