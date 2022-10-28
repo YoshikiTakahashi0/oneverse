@@ -6,16 +6,12 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ReviewRequest extends FormRequest
 {
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
+    
     public function rules()
     {
         return [
             'rating' => 'required',
-            'review.body' => 'required|string|max:100',
+            'review.body' => 'nullable|string|max:100',
         ];
     }
 }

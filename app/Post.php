@@ -31,6 +31,11 @@ class Post extends Model
         return $this->orderBy('created_at', 'DESC')->paginate($limit_count);
     }
     
+    public function wroteReview(User $user)
+    {
+        return $this->reviews()->where('user_id', $user->id)->exists();
+    }
+    
     protected $fillable = [
         'music',
         'image',

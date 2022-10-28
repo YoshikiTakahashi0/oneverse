@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Review;
 use App\Tag;
 use App\Http\Requests\PostRequest;
 use Cloudinary;
@@ -22,7 +23,9 @@ class PostController extends Controller
         $post->plays = ++$plays;
         $post->save();
         
-        return view('posts/show')->with(['post' => $post]);
+        $reviews = $post->reviews()->paginate(5);
+        
+        return view('posts/show')->with(['post' => $post, 'reviews' => $reviews]);
     }
 
     public function create(Tag $tag)
