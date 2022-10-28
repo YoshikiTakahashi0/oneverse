@@ -10,12 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
-    public function create(Review $review, $post)
-    {
-        $review->post_id = $post;
-        return view('reviews/create')->with(['review' => $review]);
-    }
-    
     public function store(Review $review, ReviewRequest $request)
     {
         $review->user_id = Auth::id();
