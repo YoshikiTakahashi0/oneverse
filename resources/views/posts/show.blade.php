@@ -17,6 +17,7 @@
     <p class='plays'>再生{{ $post->plays }}回</p>
 </div>
 <div class="reviews">
+    @if(Auth::check())
     @if(!($post->wroteReview(Auth::user()) || (Auth::user() == $post->user)))
         <h3>レビュー投稿</h3>
         <form action="/reviews" method= "POST">
@@ -46,6 +47,7 @@
             </div>
             <input type="submit" value="投稿">
         </form>
+    @endif
     @endif
     <div class="show">
         @foreach ($reviews as $review)
