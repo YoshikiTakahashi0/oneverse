@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>{{ $tag->name }}タグ新着</h1>
+<h1>{{ $tag->name }}タグ再生順</h1>
 <div class="sort-item">
     <p class="new">
         <a href="/tags/{{ $tag->id }}">新着順</a>
@@ -18,8 +18,12 @@
             </h2>
             <p class='image'><img width="70" height="70" src="{{ $post->image }}"></p>
             <p class='body'>{{ $post->body }}</p>
+            <p class='plays'>再生{{ $post->plays }}回</p>
         </div>
     @endforeach
+</div>
+<div class='paginate'>
+    {{ $posts->links() }}
 </div>
 <div class="footer">
     <a href='{{ url()->previous() }}'>戻る</a>
