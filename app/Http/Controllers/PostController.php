@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Review;
 use App\Tag;
+use App\User;
 use App\Http\Requests\PostRequest;
 use Cloudinary;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class PostController extends Controller
 {
@@ -61,8 +64,19 @@ class PostController extends Controller
     
     public function rank()
     {
-        $posts = Post::orderBy('plays', 'desc')->paginate(20);
-        return view('posts/rank')->with(['posts' => $posts]);
+        $posts = Post::orderBy('plays', 'desc')->paginate(10);
+        return view('posts/rank_plays')->with(['posts' => $posts]);
+    }
+    
+    public function rank_reviews()
+    {
+        $posts = Post::withCount([
+            'reviews AS total_rating' => function($query){
+                $query->select(DB::raw("SUM(rating) as rating_sum"));
+                }
+            ])->orderBy('total_rating', 'desc')->paginate(10);
+            
+        return view('posts/rank_reviews')->with(['posts' => $posts]);
     }
     
 }

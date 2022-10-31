@@ -1,16 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>{{ $tag->name }}タグ新着</h1>
-<div class="sort-item">
-    <p class="new">
-        <a href="/tags/{{ $tag->id }}">新着順</a>
-    </p>
-    <p class="rank">
-        <a href="/tags/{{ $tag->id }}/rank">再生順</a>
-    </p>
+<h1>Mypage</h1>
+<div class="main">
+    <div class="headline">
+        <h2 class="name">{{ $user->name }}</h2>
+        <p class="image"><img width="70" height="70" src="{{ $user->image }}"></p>
+    </div>
+    <div class="follow">
+        <p class="follows">フォロー</p>
+        <p class="followers">フォロワー</p>
+    </div>
 </div>
-<div class='posts'>
+<div class="posts">
     @foreach ($posts as $post)
         <div class='post'>
             <h2 class='title'>

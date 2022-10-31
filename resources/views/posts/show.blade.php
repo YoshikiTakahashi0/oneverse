@@ -2,11 +2,18 @@
 
 @section("head")
 <link rel="stylesheet" href="{{secure_asset('css/rating.css') }}">
+@endsection
 
 @section('content')
 <h1 class="title">
     {{ $post->title }}
 </h1>
+<div class="contributor">
+    <p class='image'><img width="20" height="20" src="{{ $post->user->image }}"></p>
+    <p class='name'>
+        <a href='/users/{{ $post->user->id }}'>{{ $post->user->name }}</a>
+    </p>
+</div>
 <div class="post">
     <p class='image'><img width="70" height="70" src="{{ $post->image }}"></p>
     <p class='music'><video controls width="300" height="300" src="{{ $post->music }}"></p>
@@ -62,7 +69,5 @@
 </div>
 <div class="footer">
     <a href='/posts/index'>新着へ</a>
-</div>
-<div class="Contributor">
 </div>
 @endsection
