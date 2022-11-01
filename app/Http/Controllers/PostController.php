@@ -42,12 +42,19 @@ class PostController extends Controller
         $music = $request->file('music');
         // アップロードされたファイルの絶対パスを取得
         $post->music = Cloudinary::uploadVideo($music->getRealPath())->getSecurePath();
-        
+        // 直前にcloudinaryにアップロードされたファイルのurlを生成
+        // 動画のPublicIdを取得
+        $musicPublicId = Cloudinary::getPublicId();
+        $post->music_public_id = $musicPublicId;
+
         // imageの保存処理
         if($request->file('image'))
         {
         $image = $request->file('image');
         $post->image = Cloudinary::upload($image->getRealPath())->getSecurePath();
+        // 画像のPublicIdを取得
+        $imagePublicId = Cloudinary::getPublicId();
+        $post->image_public_id = $imagePublicId;
         }
         
         //tag_id保存処理
@@ -60,6 +67,23 @@ class PostController extends Controller
         $input = $request['post'];
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
+    }
+    
+    public function destroy(int $id)
+    {
+        $post = Post::find($id);
+        
+        // 動画ファイルの削除
+        Cloudinary::destroy($post->music_public_id);
+
+        // 画像ファイルの削除
+        if(isset($post->image_public_id))
+        {
+            Cloudinary::destroy($post->image_public_id);
+        }
+        
+        $post->delete();
+        return redirect('posts/index');
     }
     
     public function rank()

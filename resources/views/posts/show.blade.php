@@ -23,38 +23,51 @@
     </p>
     <p class='plays'>再生{{ $post->plays }}回</p>
 </div>
+<div class="contributor">
+    <div class="destroy">
+        @if(Auth::check())
+            @if(Auth::user() == $post->user)
+                <form action='/posts/destroy/{{ $post->id }}' method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="delete">投稿を削除</button>
+                </form>
+            @endif
+        @endif
+    </div>
+</div>
 <div class="reviews">
     @if(Auth::check())
-    @if(!($post->wroteReview(Auth::user()) || (Auth::user() == $post->user)))
-        <h3>レビュー投稿</h3>
-        <form action="/reviews" method= "POST">
-            @csrf
-            <div class="rating">
-                <div class="rate-form">
-                    <input id="star5" type="radio" name="rating" value="5">
-                    <label for="star5">★</label>
-                    <input id="star4" type="radio" name="rating" value="4">
-                    <label for="star4">★</label>
-                    <input id="star3" type="radio" name="rating" value="3">
-                    <label for="star3">★</label>
-                    <input id="star2" type="radio" name="rating" value="2">
-                    <label for="star2">★</label>
-                    <input id="star1" type="radio" name="rating" value="1">
-                    <label for="star1">★</label>
-                    <p class="rating__error" style="color:red">{{ $errors->first('rating') }}</p>
+        @if(!($post->wroteReview(Auth::user()) || (Auth::user() == $post->user)))
+            <h3>レビュー投稿</h3>
+            <form action="/reviews" method= "POST">
+                @csrf
+                <div class="rating">
+                    <div class="rate-form">
+                        <input id="star5" type="radio" name="rating" value="5">
+                        <label for="star5">★</label>
+                        <input id="star4" type="radio" name="rating" value="4">
+                        <label for="star4">★</label>
+                        <input id="star3" type="radio" name="rating" value="3">
+                        <label for="star3">★</label>
+                        <input id="star2" type="radio" name="rating" value="2">
+                        <label for="star2">★</label>
+                        <input id="star1" type="radio" name="rating" value="1">
+                        <label for="star1">★</label>
+                        <p class="rating__error" style="color:red">{{ $errors->first('rating') }}</p>
+                    </div>
+                    <div class="post_id">
+                        <input type="hidden" name="review[post_id]" value="{{ $post->id }}"/>
+                    </div>
+                    <div class="body">
+                        <h4>コメント</h4>
+                        <textarea name="review[body]">{{ old("review.body") }}</textarea>
+                        <p class="body__error" style="color:red">{{ $errors->first('review.body') }}</p>
+                    </div>
                 </div>
-                <div class="post_id">
-                    <input type="hidden" name="review[post_id]" value="{{ $post->id }}"/>
-                </div>
-                <div class="body">
-                    <h4>コメント</h4>
-                    <textarea name="review[body]">{{ old("review.body") }}</textarea>
-                    <p class="body__error" style="color:red">{{ $errors->first('review.body') }}</p>
-                </div>
-            </div>
-            <input type="submit" value="投稿">
-        </form>
-    @endif
+                <input type="submit" value="投稿">
+            </form>
+        @endif
     @endif
     <div class="show">
         @foreach ($reviews as $review)

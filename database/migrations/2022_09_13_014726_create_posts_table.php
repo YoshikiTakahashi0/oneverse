@@ -17,10 +17,12 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title', 50);
             $table->string('music');
+            $table->string('music_public_id')->nullable();
             $table->string('body', 300)->nullable();
             $table->integer('user_id')->unsigned();
             $table->integer('plays')->nullable();
             $table->string('image')->nullable();
+            $table->string('image_public_id')->nullable();
             $table->integer('tag_id')->unsigned()->nullable();
             $table->timestamps();
         });
