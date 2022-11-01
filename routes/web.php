@@ -16,6 +16,7 @@ use App\Http\Controllers\CloudinaryUploadController;
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/posts/create', 'PostController@create');
+    Route::delete('/posts/destroy/{post}', 'PostController@destroy');
     Route::post('/reviews', 'ReviewController@store');
     Route::get('/mypage/{user}', 'UserController@mypage');
     Route::get('/mypage/{user}/edit', 'UserController@edit');

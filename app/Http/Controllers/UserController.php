@@ -29,8 +29,6 @@ class UserController extends Controller
     
     public function update(UserRequest $request, User $user)
     {
-        dd($request);
-        
         // imageの保存処理
         if($request->file('image'))
         {
