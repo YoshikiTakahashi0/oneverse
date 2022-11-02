@@ -10,12 +10,8 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            //'name' => 'required|string|max:255',
-            //'gender' => 'required',
-            //'age' => 'required|integer',
-            //'email' => 'required|string|email',
-            //'password' => 'required|string|min:8|confirmed',
-            //'image' => 'nullable|image'
+            'user.name' => 'string|max:20',
+            'user.email' => 'string|email',
         ];
     }
 }

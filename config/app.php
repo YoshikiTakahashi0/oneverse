@@ -228,5 +228,11 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+];
 
+
+return [
+    'cloudinary-key' => env('CLOUDINARY_API_KEY'),
+    'cloudinary-secret' => env('CLOUDINARY_API_SECRET'),
+    'cloudinary-name' => env('CLOUDINARY_CLOUD_NAME'),
 ];
