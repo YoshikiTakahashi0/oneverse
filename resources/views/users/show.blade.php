@@ -6,6 +6,11 @@
     <div class="headline">
         <h2 class="name">{{ $user->name }}</h2>
         <p class="image"><img width="70" height="70" src="{{ $user->image }}"></p>
+        @if($user->followers()->where('id', Auth::id())->exists())
+            <a href="/users/{{ $user->id }}/unfollow">フォロー解除</a>
+        @else
+            <a href="/users/{{ $user->id }}/follow">フォローする</a>
+        @endif
     </div>
     <div class="follow">
         <p class="follows">フォロー</p>

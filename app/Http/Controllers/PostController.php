@@ -39,13 +39,12 @@ class PostController extends Controller
     public function store(Post $post, PostRequest $request)
     {
         // musicの保存処理
-        $music = $request->file('music');
+        $video = $request->file('music');
         // アップロードされたファイルの絶対パスを取得
-        $post->music = Cloudinary::uploadVideo($music->getRealPath())->getSecurePath();
-        // 直前にcloudinaryにアップロードされたファイルのurlを生成
+        $post->music = Cloudinary::uploadVideo($video->getRealPath())->getSecurePath();
         // 動画のPublicIdを取得
-        $musicPublicId = Cloudinary::getPublicId();
-        $post->music_public_id = $musicPublicId;
+        $videoPublicId = Cloudinary::getPublicId();
+        $post->music_public_id = $videoPublicId;
 
         // imageの保存処理
         if($request->file('image'))
@@ -69,9 +68,8 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
     
-    public function destroy(int $id)
+    public function destroy(Post $post)
     {
-        $post = Post::find($id);
         
         // 動画ファイルの削除
         Cloudinary::destroy($post->music_public_id);

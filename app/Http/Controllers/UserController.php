@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\User;
+use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -20,35 +21,36 @@ class UserController extends Controller
         return view('users/mypage')->with(['user' => $user]);
     }
     
-    
-    
     public function edit(User $user)
     {
         return view('users/edit')->with(['user' => $user]);
     }
     
-    public function update(UserRequest $request, User $user)
+    public function update(User $user,UserRequest $request)
     {
-        // imageの保存処理
-        if($request->file('image'))
+        if(isset($request['user']))
         {
-        $image = $request->file('image');
-        $user->image = Cloudinary::upload($image->getRealPath())->getSecurePath();
-        }
-        
-        $input = $request['user'];
-        $user->fill($input)->save();
-        
+            // imageの保存処理
+            if($request->file('image'))
+            {
+            $image = $request->file('image');
+            $user->image = Cloudinary::upload($image->getRealPath())->getSecurePath();
+            }
+            
+            $input = $request['user'];
+            //dd($request);
+            $user->fill($input)->save();  
+        }      
         return redirect('/mypage/'. $user->id);
     }
     
     public function rank()
     {
         $users = User::withCount([
-            'reviews AS total_rating' => function($query){
-                $query->select(DB::raw("SUM(rating) as rating_sum"));
+            'posts AS total_plays' => function($query){
+                $query->select(DB::raw("SUM(plays) as plays_sum"));
                 }
-            ])->orderBy('total_rating', 'desc')->paginate(10);
+            ])->orderBy('total_plays', 'desc')->paginate(10);
             
         return view('users/rank')->with(['users' => $users]);
     }
