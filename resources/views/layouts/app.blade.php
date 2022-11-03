@@ -33,6 +33,9 @@
                 <a class="about" href="{{ url('/about') }}">
                     本アプリについて
                 </a>
+                <a class="timeline" href="{{ url('/timeline') }}">
+                    タイムライン
+                </a>
                 <a class="ranking" href="{{ url('/rank') }}">
                     ランキング
                 </a>

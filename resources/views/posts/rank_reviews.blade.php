@@ -20,6 +20,7 @@
                 <h2 class='title'>
                     <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                 </h2>
+                <p class="rating"></p>
                 <p class='image'><img width="70" height="70" src="{{ $post->image }}"></p>
                 <p class='body'>{{ $post->body }}</p>
             </div>

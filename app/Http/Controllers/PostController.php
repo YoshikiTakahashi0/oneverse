@@ -101,5 +101,11 @@ class PostController extends Controller
         return view('posts/rank_reviews')->with(['posts' => $posts]);
     }
     
+    public function timeline()
+    {
+        $posts = Post::query()->whereIn('user_id', Auth::user()->follows()->pluck('followed_id'))->orderBy('created_at', 'desc')->paginate(10);
+        
+        return view('posts/timeline')->with(['posts' => $posts]);
+    }
 }
 ?>

@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::put('/mypage/image/{user}', 'UserController@updateImage');
     Route::get('/users/{user}/follow', 'FollowerController@follow');
     Route::get('/users/{user}/unfollow', 'FollowerController@unfollow');
+    Route::get('/timeline', 'PostController@timeline');
 });
 
 Route::get('/', 'HomeController@index');
