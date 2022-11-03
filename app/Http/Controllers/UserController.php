@@ -16,7 +16,7 @@ class UserController extends Controller
     public function mypage(User $user)
     {
         $id = Auth::id();
-        $user = DB::table('users')->find($id);
+        $user = $user->find($id);
         
         $query = Post::query();
         $query->where('user_id', $user->id);

@@ -11,8 +11,8 @@
         </div>
     </div>
     <div class="follow">
-        <p class="follows">フォロー</p>
-        <p class="followers">フォロワー</p>
+        <p class="follows">フォロー{{ $user->getFollowCount() }}</p>
+        <p class="followers">フォロワー{{ $user->getFollowerCount() }}</p>
     </div>
 </div>
 <div class="posts">
