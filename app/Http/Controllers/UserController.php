@@ -18,7 +18,11 @@ class UserController extends Controller
         $id = Auth::id();
         $user = DB::table('users')->find($id);
         
-        return view('users/mypage')->with(['user' => $user]);
+        $query = Post::query();
+        $query->where('user_id', $user->id);
+        $posts = $query->orderBy('plays', 'desc')->paginate(10);
+        
+        return view('users/mypage')->with(['user' => $user, 'posts' => $posts]);
     }
     
     public function edit(User $user)
