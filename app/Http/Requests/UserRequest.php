@@ -12,6 +12,7 @@ class UserRequest extends FormRequest
         return [
             'user.name' => 'string|max:20',
             'user.email' => 'string|email',
+            'image' => 'required|image',
         ];
     }
 }

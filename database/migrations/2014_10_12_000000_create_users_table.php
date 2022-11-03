@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('age');
             $table->string('gender');
             $table->string('image')->nullable();
+            $table->string('image_public_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

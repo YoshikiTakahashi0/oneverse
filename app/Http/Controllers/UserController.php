@@ -28,19 +28,38 @@ class UserController extends Controller
     
     public function update(User $user,UserRequest $request)
     {
+        // 基本情報処理
         if(isset($request['user']))
         {
-            // imageの保存処理
-            if($request->file('image'))
-            {
-            $image = $request->file('image');
-            $user->image = Cloudinary::upload($image->getRealPath())->getSecurePath();
-            }
-            
             $input = $request['user'];
-            //dd($request);
             $user->fill($input)->save();  
-        }      
+        }     
+        
+        return redirect('/mypage/'. $user->id);
+    }
+    
+    public function editImage(User $user)
+    {
+        return view('users/edit_image')->with(['user' => $user]);
+    }
+    
+    public function updateImage(User $user, UserRequest $request)
+    {
+        // 変更前の画像をCloudinary上から削除
+        if(isset($user->image_public_id))
+        {
+            Cloudinary::destroy($user->image_public_id);
+        }
+        
+        // 変更後の画像保存処理
+        $image = $request->file('image');
+        $user->image = Cloudinary::upload($image->getRealPath())->getSecurePath();
+        // 画像のPublicIdを取得
+        $imagePublicId = Cloudinary::getPublicId();
+        $user->image_public_id = $imagePublicId;
+        
+        $user->save(); 
+
         return redirect('/mypage/'. $user->id);
     }
     
