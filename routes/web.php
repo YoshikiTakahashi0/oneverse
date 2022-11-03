@@ -20,7 +20,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/reviews', 'ReviewController@store');
     Route::get('/mypage/{user}', 'UserController@mypage');
     Route::get('/mypage/{user}/edit', 'UserController@edit');
+    Route::get('/mypage/{user}/edit/image', 'UserController@editImage');
     Route::put('/mypage/{user}', 'UserController@update');
+    Route::put('/mypage/image/{user}', 'UserController@updateImage');
     Route::get('/users/{user}/follow', 'FollowerController@follow');
     Route::get('/users/{user}/unfollow', 'FollowerController@unfollow');
 });
