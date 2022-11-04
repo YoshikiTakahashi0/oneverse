@@ -6,6 +6,7 @@ use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserImageRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Cloudinary;
@@ -47,7 +48,7 @@ class UserController extends Controller
         return view('users/edit_image')->with(['user' => $user]);
     }
     
-    public function updateImage(User $user, UserRequest $request)
+    public function updateImage(User $user, UserImageRequest $request)
     {
         // 変更前の画像をCloudinary上から削除
         if(isset($user->image_public_id))

@@ -6,6 +6,7 @@
     <div class="headline">
         <h2 class="name">{{ $user->name }}</h2>
         <p class="image"><img width="70" height="70" src="{{ $user->image }}"></p>
+        <p class="body">{{ $user->body }}</p>
         @if(Auth::check())
             @if(!(Auth::user() == $user))
                 @if($user->followers()->where('id', Auth::id())->exists())

@@ -16,6 +16,7 @@
             </h2>
             <p class='image'><img width="70" height="70" src="{{ $post->image }}"></p>
             <p class='body'>{{ $post->body }}</p>
+            <p class='created_at'>{{ $post->created_at }}</p>
         </div>
     @endforeach
 </div>
