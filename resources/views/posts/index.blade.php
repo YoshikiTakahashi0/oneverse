@@ -6,7 +6,7 @@
 <h1>新着</h1>
 <div class='posts'>
     @foreach ($posts as $post)
-        <div class='post'>
+        <div class='post card'>
             <h2 class='title'>
                 <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
             </h2>
