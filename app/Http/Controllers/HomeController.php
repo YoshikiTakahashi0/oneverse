@@ -13,9 +13,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('plays', 'desc')->take(5)->get();
+        $rankposts = Post::orderBy('plays', 'desc')->take(5)->get();
+        $newposts = Post::orderBy('created_at', 'desc')->take(5)->get();
 
-        return view('home')->with(['posts' =>$posts]);
+        return view('home')->with(['rankposts' =>$rankposts, 'newposts' => $newposts]);
     }
     
     public function about()
