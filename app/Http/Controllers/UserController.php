@@ -69,12 +69,16 @@ class UserController extends Controller
     
     public function rank()
     {
-        $users = User::withCount([
-            'posts AS total_plays' => function($query){
-                $query->select(DB::raw("SUM(plays) as plays_sum"));
-                }
-            ])->orderBy('total_plays', 'desc')->paginate(10);
-            
+        // userをpostsが持つ合計rating順に
+        $users = DB::table('posts')
+                    ->rightJoin('reviews', 'posts.id', '=', 'reviews.post_id')
+                    ->crossJoin('users', 'posts.user_id', '=', 'users.id')
+                    ->groupBy('posts.user_id')
+                    ->groupBy('users.name')
+                    ->groupBy('users.image')
+                    ->select('posts.user_id as id', 'users.name', 'users.image', DB::raw('sum(reviews.rating) as rating'))
+                    ->orderBy('rating', 'desc')->paginate(10);
+                    
         return view('users/rank')->with(['users' => $users]);
     }
     
