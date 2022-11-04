@@ -11,8 +11,8 @@ class UserRequest extends FormRequest
     {
         return [
             'user.name' => 'string|max:20',
+            'user.body' => 'nullable|string|max:160',
             'user.email' => 'string|email',
-            'image' => 'required|image',
         ];
     }
 }

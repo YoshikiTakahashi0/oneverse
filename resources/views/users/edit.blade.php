@@ -16,6 +16,11 @@
             <input type="text" name="user[name]" value="{{ $user->name }}">
             <p class="name__error" style="color:red">{{ $errors->first('user.name') }}</p>
         </div>
+        <div class="body">
+            <h2>{{ __('プロフィール欄') }}</h2>
+            <input type="text" name="user[body]" value="{{ $user->body }}">
+            <p class="body__error" style="color:red">{{ $errors->first('user.body') }}</p>
+        </div>
         <div class="email">
             <h2>{{ __('E-Mail Address') }}</h2>
             <input type="email" name="user[email]" value="{{ $user->email }}">

@@ -22,6 +22,7 @@
        <a href='/tags/{{ $post->tag->id }}'>{{ $post->tag->name }}</a>
     </p>
     <p class='plays'>再生{{ $post->plays }}回</p>
+    <p class='created_at'>{{ $post->created_at }}</p>
 </div>
 <div class="contributor">
     <div class="destroy">
@@ -69,6 +70,7 @@
             </form>
         @endif
     @endif
+    <h2>レビュー</h2>
     <div class="show">
         @foreach ($reviews as $review)
             <p class="rating">{{ $review->rating }}</p>
