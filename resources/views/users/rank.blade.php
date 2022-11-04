@@ -21,7 +21,7 @@
                     <a href="/users/{{ $user->id }}">{{ $user->name }}</a>
                 </h2>
                 <p class='image'><img width="70" height="70" src="{{ $user->image }}"></p>
-                <p class="plays"></p>
+                <p class="rating">☆{{  $user->rating}}</p>
             </div>
         @endforeach
     </div>
