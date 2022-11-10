@@ -1,31 +1,46 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>{{ $tag->name }}タグ再生順</h1>
-<div class="sort-item">
-    <p class="new">
-        <a href="/tags/{{ $tag->id }}">新着順</a>
-    </p>
-    <p class="rank">
-        <a href="/tags/{{ $tag->id }}/rank">再生順</a>
-    </p>
-</div>
-<div class='posts'>
-    @foreach ($posts as $post)
-        <div class='post'>
-            <h2 class='title'>
-                <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
-            </h2>
-            <p class='image'><img width="70" height="70" src="{{ $post->image }}"></p>
-            <p class='body'>{{ $post->body }}</p>
-            <p class='plays'>再生{{ $post->plays }}回</p>
+<div class="container">
+    <div class="row col">
+        <h1>{{ $tag->name }}タグ再生順</h1>
+    </div>
+    <div class="sort-item row my-2 justify-content-center">
+        <p class="new col-3">
+            <a href="/tags/{{ $tag->id }}" style="text-decoration:none;">新着順</a>
+        </p>
+        <p class="rank col-3">
+            <a href="/tags/{{ $tag->id }}/rank" style="text-decoration:none;">再生順</a>
+        </p>
+    </div>
+    <div class="row col">
+        <div class='posts card'>
+            @foreach ($posts as $post)
+                <div class='post card' style="height: 180px">
+                    <div class="row g-0">
+                        <div class="col-md-4 flex-container"> 
+                            <div class="flex-item">
+                                <div class="image-wrap">
+                                    <p class='image'><img src="{{ $post->image }}" class="img-fluid rounded float-start border img-thumbnail"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h2 class='title card-title col'>
+                                    <a href="/posts/{{ $post->id }}" style="text-decoration:none;">{{ $post->title }}</a>
+                                </h2>
+                                <p class='plays card-text col'><small class="text-muted">再生数{{ $post->plays }}回</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
-    @endforeach
-</div>
-<div class='paginate'>
-    {{ $posts->links() }}
-</div>
-<div class="footer">
-    <a href='{{ url()->previous() }}'>戻る</a>
-</div>
+    <div class='paginate'>
+        {{ $posts->links() }}
+    </div>
+    <div class="footer">
+        <a href='{{ url()->previous() }}' style="text-decoration:none;">戻る</a>
+    </div>
 @endsection
