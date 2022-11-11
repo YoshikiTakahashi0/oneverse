@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'OneVerse'),
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Tokyo',
 
     /*
     |--------------------------------------------------------------------------
@@ -161,6 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -227,5 +228,11 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+];
 
+
+return [
+    'cloudinary-key' => env('CLOUDINARY_API_KEY'),
+    'cloudinary-secret' => env('CLOUDINARY_API_SECRET'),
+    'cloudinary-name' => env('CLOUDINARY_CLOUD_NAME'),
 ];

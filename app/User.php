@@ -16,7 +16,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'body',
+        'email',
+        'password',
+        'age',
+        'gender',
+        'image',
     ];
 
     /**
@@ -36,4 +42,40 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    //postに対するリレーション
+    public function Posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+    
+    //commentに対するリレーション
+    public function reviews()
+    {
+        return $this->hasMany('App\Review');
+    }
+    
+    //userに対するリレーション。フォロワー
+    public function followers()
+    {
+        return $this->belongsToMany(self::class, "followers", "followed_id", "following_id");
+    }
+    
+    //userに対するリレーション。フォロー.
+    public function follows()
+    {
+        return $this->belongsToMany(self::class, "followers", "following_id", "followed_id");
+    }
+    
+    // フォローのカウント
+    public function getFollowCount()
+    {
+        return $this->follows()->count();
+    }
+    
+    // フォロワーのカウント
+    public function getFollowerCount()
+    {
+        return $this->followers()->count();
+    }
 }
