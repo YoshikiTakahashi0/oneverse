@@ -29,7 +29,7 @@
                     <p class='tag'>
                        <a href='/tags/{{ $post->tag->id }}' style="text-decoration:none;">ジャンル：{{ $post->tag->name }}</a>
                     </p>
-                    <p class='plays'>再生{{ $post->plays }}回</p>
+                    <p class='plays'>閲覧数{{ $post->plays }}回</p>
                     <p class='created_at'>{{ $post->created_at }}</p>
                 </div>
             </div>
