@@ -53,7 +53,7 @@
                                     <h2 class='title card-title col'>
                                         <a href="/posts/{{ $post->id }}" style="text-decoration:none;">{{ $post->title }}</a>
                                     </h2>
-                                    <p class='plays card-text col'><small class="text-muted">再生数{{ $post->plays }}回</small></p>
+                                    <p class='plays card-text col'><small class="text-muted">閲覧数{{ $post->plays }}回</small></p>
                                 </div>
                             </div>
                         </div>

@@ -7,7 +7,7 @@
     </div>
     <div class="rank-item row justify-content-center">
         <p class="plays col-3">
-            <a href="/rank" style="text-decoration:none;">再生数</a>
+            <a href="/rank" style="text-decoration:none;">閲覧数</a>
         </p>
         <p class="reviews col-3">
             <a href="/rank/reviews" style="text-decoration:none;">レビュー評価</a>

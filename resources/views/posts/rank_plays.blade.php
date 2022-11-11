@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row col">
-        <h1>再生数ランキング</h1>
+        <h1>閲覧数ランキング</h1>
     </div>
     <div class="rank-item row justify-content-center">
         <p class="plays col-3">
-            <a style="text-decoration:none;" href="/rank">再生数</a>
+            <a style="text-decoration:none;" href="/rank">閲覧数</a>
         </p>
         <p class="reviews col-3">
             <a style="text-decoration:none;" href="/rank/reviews">レビュー評価</a>
@@ -33,7 +33,7 @@
                                 <h2 class='title card-title col'>
                                     <a style="text-decoration:none;" href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                                 </h2>
-                                <p class='plays card-text col'><small class="text-muted">再生数{{ $post->plays }}回</small></p>
+                                <p class='plays card-text col'><small class="text-muted">閲覧数{{ $post->plays }}回</small></p>
                             </div>
                         </div>
                     </div>

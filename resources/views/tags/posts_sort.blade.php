@@ -10,7 +10,7 @@
             <a href="/tags/{{ $tag->id }}" style="text-decoration:none;">新着順</a>
         </p>
         <p class="rank col-3">
-            <a href="/tags/{{ $tag->id }}/rank" style="text-decoration:none;">再生順</a>
+            <a href="/tags/{{ $tag->id }}/rank" style="text-decoration:none;">閲覧数順</a>
         </p>
     </div>
     <div class="row col">
