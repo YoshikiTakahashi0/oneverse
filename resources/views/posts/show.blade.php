@@ -17,9 +17,9 @@
         </div>
         <div class="col-md-6">
             <div class="ml-5">
-                <div class="contributor">
-                    <p class='image'><img width="20" height="20" src="{{ $post->user->image }}"></p>
-                    <p class='name'>
+                <div class="contributor row">
+                    <p class='image col-1'><img width="30" height="30" src="{{ $post->user->image }}"></p>
+                    <p class='name col-2'>
                         <a href='/users/{{ $post->user->id }}' style="text-decoration:none;">{{ $post->user->name }}</a>
                     </p>
                 </div>
