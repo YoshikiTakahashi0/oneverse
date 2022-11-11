@@ -19,7 +19,7 @@
             <div class="ml-5">
                 <div class="contributor row">
                     <p class='image col-1'><img width="30" height="30" src="{{ $post->user->image }}"></p>
-                    <p class='name col-2'>
+                    <p class='name mx-2 col-3'>
                         <a href='/users/{{ $post->user->id }}' style="text-decoration:none;">{{ $post->user->name }}</a>
                     </p>
                 </div>
