@@ -4,21 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "3d2406a474250b1f48d4af86a5e6edc9",
-    "packages": [
-        {
-            "name": "doctrine/inflector",
-            "version": "2.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/inflector.git",
-                "reference": "d9d313a36c872fd6ee06d9a6cbcf713eaa40f024"
-            },
-            "dist": {
-                "type": "zip",
-=======
-    "content-hash": "29b03fcd75305d25c7b99d56f674b0a9",
+    "content-hash": "3f44fd457d0cd82166692c3c29c0e1e4",
     "packages": [
         {
             "name": "cloudinary-labs/cloudinary-laravel",
@@ -227,7 +213,6 @@
             },
             "dist": {
                 "type": "zip",
->>>>>>> origin/master
                 "url": "https://api.github.com/repos/doctrine/inflector/zipball/d9d313a36c872fd6ee06d9a6cbcf713eaa40f024",
                 "reference": "d9d313a36c872fd6ee06d9a6cbcf713eaa40f024",
                 "shasum": ""
@@ -4553,17 +4538,6 @@
             "time": "2022-10-03T15:15:11+00:00"
         },
         {
-<<<<<<< HEAD
-            "name": "tijsverkoyen/css-to-inline-styles",
-            "version": "2.2.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
-                "reference": "4348a3a06651827a27d989ad1d13efec6bb49b19"
-            },
-            "dist": {
-                "type": "zip",
-=======
             "name": "teapot/status-code",
             "version": "v1.1.2",
             "source": {
@@ -4620,7 +4594,6 @@
             },
             "dist": {
                 "type": "zip",
->>>>>>> origin/master
                 "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/4348a3a06651827a27d989ad1d13efec6bb49b19",
                 "reference": "4348a3a06651827a27d989ad1d13efec6bb49b19",
                 "shasum": ""
