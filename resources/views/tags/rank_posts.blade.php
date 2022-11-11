@@ -3,14 +3,14 @@
 @section('content')
 <div class="container">
     <div class="row col">
-        <h1>{{ $tag->name }}タグ再生順</h1>
+        <h1>{{ $tag->name }}タグ閲覧順</h1>
     </div>
     <div class="sort-item row my-2 justify-content-center">
         <p class="new col-3">
             <a href="/tags/{{ $tag->id }}" style="text-decoration:none;">新着順</a>
         </p>
         <p class="rank col-3">
-            <a href="/tags/{{ $tag->id }}/rank" style="text-decoration:none;">再生順</a>
+            <a href="/tags/{{ $tag->id }}/rank" style="text-decoration:none;">閲覧数順</a>
         </p>
     </div>
     <div class="row col">
@@ -30,7 +30,7 @@
                                 <h2 class='title card-title col'>
                                     <a href="/posts/{{ $post->id }}" style="text-decoration:none;">{{ $post->title }}</a>
                                 </h2>
-                                <p class='plays card-text col'><small class="text-muted">再生数{{ $post->plays }}回</small></p>
+                                <p class='plays card-text col'><small class="text-muted">閲覧数{{ $post->plays }}回</small></p>
                             </div>
                         </div>
                     </div>
