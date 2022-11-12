@@ -73,13 +73,13 @@ class UserController extends Controller
         // userをpostsが持つ合計rating順に
         $users = DB::table('posts')
                     ->rightJoin('reviews', 'posts.id', '=', 'reviews.post_id')
-                    ->crossJoin('users', 'posts.user_id', '=', 'users.id')
+                    // ->crossJoin('users', 'posts.user_id', '=', 'users.id')
+                    ->join('users', 'posts.user_id', '=', 'users.id')
                     ->groupBy('posts.user_id')
                     ->groupBy('users.name')
                     ->groupBy('users.image')
-                    // ->select('posts.user_id as id', 'users.name', 'users.image', DB::raw('sum(reviews.rating) as rating'))
-                    ->select('posts.user_id as id', 'users.name', 'users.image')
-                    ->orderBy('id', 'desc')->paginate(10);
+                    ->select('posts.user_id as id', 'users.name', 'users.image', DB::raw('sum(reviews.rating) as rating'))
+                    ->orderBy('rating', 'desc')->paginate(10);
                     
         return view('users/rank')->with(['users' => $users]);
     }
