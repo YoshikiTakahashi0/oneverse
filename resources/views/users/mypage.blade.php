@@ -6,11 +6,11 @@
         <h1>Mypage</h1>
     </div>
     <div class="row g-0">
-        <div class="col-md-6">
+        <div class="col-md-3">
             <p class="image"><img src="{{ $user->image }}" class="img-fluid rounded float-start border img-thumbnail"></p>
         </div>
         <div class="col-md-6">
-            <div class="ml-5">
+            <div class="ml-5 my-2">
                 <div class="headline">
                     <h2 class="name">{{ $user->name }}</h2>
                     <p class="body">{{ $user->body }}</p>
@@ -29,7 +29,7 @@
         <div class="col">
             <div class="posts card my-4">
                 @foreach ($posts as $post)
-                    <div class='post card mb-3' style="height: 180px">
+                    <div class='post card mb-3' style="max-width: 1300px">
                         <div class="row g-0">
                             <div class="col-md-4 flex-container">
                                 <div class="flex-item">
