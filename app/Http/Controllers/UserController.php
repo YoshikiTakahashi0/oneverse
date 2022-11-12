@@ -73,7 +73,6 @@ class UserController extends Controller
         // userをpostsが持つ合計rating順に
         $users = DB::table('posts')
                     ->rightJoin('reviews', 'posts.id', '=', 'reviews.post_id')
-                    // ->crossJoin('users', 'posts.user_id', '=', 'users.id')
                     ->join('users', 'posts.user_id', '=', 'users.id')
                     ->groupBy('posts.user_id')
                     ->groupBy('users.name')
