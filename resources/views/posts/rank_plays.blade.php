@@ -19,7 +19,7 @@
     <div class="row col">
         <div class="plays card">
             @foreach ($posts as $post)
-                <div class='post card' style="height: 180px">
+                <div class='post card' style="max-width: 1300px">
                     <div class="row g-0">
                         <div class="col-md-4 flex-container">
                             <div class="flex-item">

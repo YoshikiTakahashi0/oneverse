@@ -19,7 +19,7 @@
     <div class="row col">
         <div class='users card'>
             @foreach ($users as $user)
-                <div class='user card md-3' style="height: 180px">
+                <div class='user card md-3' style="max-width: 1300px">
                     <div class="row g-0">
                         <div class="col-md-4 flex-container">
                             <div class="flex-item">
