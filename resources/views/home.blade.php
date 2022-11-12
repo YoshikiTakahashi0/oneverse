@@ -7,7 +7,7 @@
             <h2>ランキング</h2>
             <div class='posts card'>
                 @foreach ($rankposts as $post)
-                    <div class='post card mb-3' style="height: 180px">
+                    <div class='post card mb-3' style="max-width: 700px">
                         <div class="row g-0">
                             <div class="col-md-4 flex-container">
                                 <div class="flex-item">
@@ -36,7 +36,7 @@
             <h2>新着</h2>
             <div class='posts card'>
                 @foreach ($newposts as $post)
-                    <div class='post card mb-3' style="height: 180px">
+                    <div class='post card mb-3' style="max-width: 700px">
                         <div class="row g-0">
                             <div class="col-md-4 flex-container">
                                 <div class="flex-item">

@@ -10,7 +10,7 @@
     <div class="row col">
         <div class='posts card'>
             @foreach ($posts as $post)
-                <div class='post card mb-3' style="height: 180px">
+                <div class='post card mb-3' style="max-width: 1300px">
                     <div class="row g-0">
                         <div class="col-md-4 flex-container">
                             <div class="flex-item">

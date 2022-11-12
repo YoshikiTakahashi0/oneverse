@@ -16,7 +16,7 @@
             <p class='music'><video controls src="{{ $post->music }}" class="img-fluid rounded float-start border img-thumbnail"></p>
         </div>
         <div class="col-md-6">
-            <div class="ml-5">
+            <div class="ml-5 my-2">
                 <div class="contributor row">
                     <p class='image col-1'><img width="30" height="30" src="{{ $post->user->image }}"></p>
                     <p class='name mx-2 col-3'>
