@@ -86,7 +86,7 @@ class PostController extends Controller
     
     public function rank()
     {
-        $posts = Post::orderBy('plays', 'desc')->paginate(10);
+        $posts = Post::orderByRaw('plays is null asc')->orderBy('plays', 'desc')->paginate(10);
         return view('posts/rank_plays')->with(['posts' => $posts]);
     }
     
@@ -96,7 +96,7 @@ class PostController extends Controller
             'reviews AS total_rating' => function($query){
                 $query->select(DB::raw("SUM(rating) as rating_sum"));
                 }
-            ])->orderBy('total_rating', 'desc')->paginate(10);
+            ])->orderByRaw('total_rating is null asc')->orderBy('total_rating', 'desc')->paginate(10);
             
         return view('posts/rank_reviews')->with(['posts' => $posts]);
     }
