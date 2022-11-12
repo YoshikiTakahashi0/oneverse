@@ -33,7 +33,7 @@
                                 <h2 class='name card-title col'>
                                     <a href="/users/{{ $user->id }}" style="text-decoration:none;">{{ $user->name }}</a>
                                 </h2>
-                                <p class="rating card-text col">☆{{  $user->rating}}</p>
+                                <!--<p class="rating card-text col">☆{{  $user->rating}}</p>-->
                             </div>
                         </div>
                     </div>

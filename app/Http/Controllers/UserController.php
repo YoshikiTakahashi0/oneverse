@@ -77,7 +77,8 @@ class UserController extends Controller
                     ->groupBy('posts.user_id')
                     ->groupBy('users.name')
                     ->groupBy('users.image')
-                    ->select('posts.user_id as id', 'users.name', 'users.image', DB::raw('sum(reviews.rating) as rating'))
+                    // ->select('posts.user_id as id', 'users.name', 'users.image', DB::raw('sum(reviews.rating) as rating'))
+                    ->select('posts.user_id as id', 'users.name', 'users.image')
                     ->orderBy('rating', 'desc')->paginate(10);
                     
         return view('users/rank')->with(['users' => $users]);
