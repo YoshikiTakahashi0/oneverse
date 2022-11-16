@@ -96,7 +96,7 @@ class PostController extends Controller
             'reviews AS total_rating' => function($query){
                 $query->select(DB::raw("SUM(rating) as rating_sum"));
                 }
-            ])->orderBy('total_rating', 'desc')->paginate(10);
+            ])->orderBy('total_rating', 'asc')->paginate(10);
             
         return view('posts/rank_reviews')->with(['posts' => $posts]);
     }
